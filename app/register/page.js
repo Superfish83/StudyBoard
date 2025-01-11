@@ -41,42 +41,43 @@ export default function Login() {
 
   return (
     <div className="m-4">
-      <header className="font-bold text-xl mb-4">StudyBoard</header>
+      <header className="font-bold text-xl mb-4">
+        <Link href={"/"}>StudyBoard</Link>
+      </header>
 
-      <form onSubmit={handleSubmit} className="rounded-lg border-2 p-4">
+      <form onSubmit={handleSubmit} className="rounded-lg border-2 p-4 w-max">
         <div className="font-bold">Sign up to StudyBoard</div>
-        <div>
-          <label>ID</label>
-          <input
-            placeholder="4 to 30 characters"
-            className="border-2 ml-2"
-            onChange={(event) => handleInputChange("id", event)}
-            value={input.id}
-          />
-        </div>
-        <div>
-          <label>PW</label>
-          <input
-            type="password"
-            placeholder="8 to 30 characters"
-            className="border-2 ml-2"
-            onChange={(event) => handleInputChange("pw", event)}
-            value={input.pw}
-          />
-        </div>
-        <div>
-          <label>Check PW</label>
-          <input
-            type="password"
-            placeholder="Enter password again"
-            className="border-2 ml-2"
-            onChange={(event) => handleInputChange("checkpw", event)}
-            value={input.checkpw}
-          />
-        </div>
-        <button type="submit" className="button">
-          Register
-        </button>
+        <section className="mt-2 text-center">
+          <div className="flex my-1 items-center">
+            <label className="mr-2 ml-auto">ID</label>
+            <input
+              className="input ml-auto"
+              onChange={(event) => handleInputChange("id", event)}
+              value={input.id}
+            />
+          </div>
+          <div className="flex my-1 items-center">
+            <label className="mr-2 ml-auto">PW</label>
+            <input
+              type="password"
+              className="input ml-auto"
+              onChange={(event) => handleInputChange("pw", event)}
+              value={input.pw}
+            />
+          </div>
+          <div className="flex my-1 items-center">
+            <label className="mr-2 ml-auto">PW check</label>
+            <input
+              type="password"
+              className="input ml-auto"
+              onChange={(event) => handleInputChange("checkpw", event)}
+              value={input.checkpw}
+            />
+          </div>
+          <button type="submit" className="button">
+            Register
+          </button>
+        </section>
       </form>
     </div>
   );
