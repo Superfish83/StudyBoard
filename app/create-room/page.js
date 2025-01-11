@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Login() {
+export default function CreateRoom() {
   const router = useRouter();
   const [input, setInput] = useState({
-    id: "",
-    pw: "",
+    name: "",
+    desc: "",
   });
 
   function handleInputChange(field, event) {
@@ -21,12 +21,12 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     // verify loginInput data
-    if (input.id.length >= 4 && input.pw.length >= 8) {
+    if (input.name.length >= 1) {
       console.log("valid input");
       console.log(input);
       router.push("/");
     } else {
-      alert("invalid input");
+      alert("invalid input. StudyRoom name must not be empty");
     }
 
     return;
@@ -38,36 +38,29 @@ export default function Login() {
         <Link href={"/"}>StudyBoard</Link>
       </header>
 
-      <form onSubmit={handleSubmit} className="rounded-lg border-2 p-4 w-max">
-        <div className="font-bold">Sign in</div>
-        <section className="my-2 text-center">
+      <form onSubmit={handleSubmit} className="">
+        <div className="font-bold">Create StudyRoom</div>
+        <section className="my-2">
           <div className="flex my-1 items-center">
-            <label className="mr-2 ml-auto">ID</label>
+            <label className="mx-2">StudyRoom Name</label>
             <input
-              className="input ml-auto"
-              onChange={(event) => handleInputChange("id", event)}
-              value={input.id}
+              className="input"
+              onChange={(event) => handleInputChange("name", event)}
+              value={input.name}
             />
           </div>
           <div className="flex my-1 items-center">
-            <label className="mr-2 ml-auto">PW</label>
+            <label className="mx-2">Description (optional)</label>
             <input
-              type="password"
-              className="input ml-auto"
-              onChange={(event) => handleInputChange("pw", event)}
-              value={input.pw}
+              className="input w-1/2"
+              onChange={(event) => handleInputChange("desc", event)}
+              value={input.desc}
             />
           </div>
           <button type="submit" className="button">
-            Sign in
+            Create
           </button>
         </section>
-        <div>
-          <label>{"Don't have account?"}</label>
-          <Link href={"/register"} className="text-cyan-700 ml-1">
-            Sign up
-          </Link>
-        </div>
       </form>
     </div>
   );
