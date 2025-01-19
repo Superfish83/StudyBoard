@@ -4,9 +4,9 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Page List
 
-/ -> main page
-/login
-/register
-/create-room
-/join-room
-/room/[id]/ -> main page of each StudyRoom
+- / -> main page
+- /login
+- /register
+- /create-room
+- /join-room
+- /room/[id]/ -> main page of each StudyRoom
